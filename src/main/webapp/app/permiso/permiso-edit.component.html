@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@permiso.edit.headline">Edit Permiso</h1>
+    <div>
+        <a routerLink="/permisos" class="btn btn-secondary" i18n="@@permiso.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idPermiso" rowType="number" i18n-label="@@permiso.idPermiso.label" label="Id Permiso" />
+    <app-input-row [group]="editForm" field="permiso" i18n-label="@@permiso.permiso.label" label="Permiso" />
+    <input type="submit" i18n-value="@@permiso.edit.headline" value="Edit Permiso" class="btn btn-primary mt-4" />
+</form>

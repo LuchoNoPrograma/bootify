@@ -1,0 +1,35 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@permiso.list.headline">Permisoes</h1>
+    <div>
+        <a routerLink="/permisos/add" class="btn btn-primary ms-2" i18n="@@permiso.list.createNew">Create new Permiso</a>
+    </div>
+</div>
+@if (!permisoes || permisoes.length === 0) {
+<div i18n="@@permiso.list.empty">No Permisoes could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@permiso.idPermiso.label">Id Permiso</th>
+                <th scope="col" i18n="@@permiso.permiso.label">Permiso</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (permiso of permisoes; track permiso.idPermiso) {
+            <tr>
+                <td>{{ permiso.idPermiso }}</td>
+                <td>{{ permiso.permiso }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/permisos/edit', permiso.idPermiso]" class="btn btn-sm btn-secondary" i18n="@@permiso.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(permiso.idPermiso!)" class="btn btn-sm btn-secondary" i18n="@@permiso.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

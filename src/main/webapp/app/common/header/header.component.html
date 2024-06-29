@@ -1,0 +1,30 @@
+<header class="bg-light">
+    <div class="container">
+        <nav class="navbar navbar-light navbar-expand-md">
+            <a routerLink="/" class="navbar-brand">
+                <img ngSrc="logo.png" i18n-alt="@@app.title" alt="Bootify" width="30" height="30" class="d-inline-block align-top">
+                <span class="ps-1" i18n="@@app.title">Bootify</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
+                    i18n-aria-label="@@navigation.toggle" aria-label="Toggle navigation" aria-controls="navbarToggle" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <ul class="navbar-nav ms-auto">
+                    <li class="navbar-item">
+                        <a routerLink="/" class="nav-link" i18n="@@navigation.home">Home</a>
+                    </li>
+                    <li class="navbar-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarEntitiesLink" role="button"
+                                aria-expanded="false" i18n="@@navigation.entities">Entities</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarEntitiesLink">
+                            <li><a routerLink="/personas" class="dropdown-item" i18n="@@persona.list.headline">Personae</a></li>
+                            <li><a routerLink="/usuarios" class="dropdown-item" i18n="@@usuario.list.headline">Usuarios</a></li>
+                            <li><a routerLink="/permisos" class="dropdown-item" i18n="@@permiso.list.headline">Permisoes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

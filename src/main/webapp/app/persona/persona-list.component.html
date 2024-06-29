@@ -1,0 +1,41 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@persona.list.headline">Personae</h1>
+    <div>
+        <a routerLink="/personas/add" class="btn btn-primary ms-2" i18n="@@persona.list.createNew">Create new Persona</a>
+    </div>
+</div>
+@if (!personae || personae.length === 0) {
+<div i18n="@@persona.list.empty">No Personae could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@persona.idPersona.label">Id Persona</th>
+                <th scope="col" i18n="@@persona.nombres.label">Nombres</th>
+                <th scope="col" i18n="@@persona.apellidos.label">Apellidos</th>
+                <th scope="col" i18n="@@persona.fechaNacimiento.label">Fecha Nacimiento</th>
+                <th scope="col" i18n="@@persona.email.label">Email</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (persona of personae; track persona.idPersona) {
+            <tr>
+                <td>{{ persona.idPersona }}</td>
+                <td>{{ persona.nombres }}</td>
+                <td>{{ persona.apellidos }}</td>
+                <td>{{ persona.fechaNacimiento }}</td>
+                <td>{{ persona.email }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/personas/edit', persona.idPersona]" class="btn btn-sm btn-secondary" i18n="@@persona.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(persona.idPersona!)" class="btn btn-sm btn-secondary" i18n="@@persona.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
